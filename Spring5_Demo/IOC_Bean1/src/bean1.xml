@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 1. 配置User对象创建-->
+<!--    <bean id="user" class="Spring5.User"></bean>-->
+
+    <bean id="book" class="Spring5.Book">
+        <!-- 2.set方法注入属性
+            使用property完成属性注入
+            name:类里面属性的名称
+            value:向属性注入的值
+        -->
+        <property name="bkName" value="书名A"></property>
+        <property name="bkAuthor" value="作者A"></property>
+<!--        向属性设置空值-->
+<!--        <property name="bkAddress">-->
+<!--            <null></null>-->
+<!--        </property>-->
+
+<!--        属性值设置特殊符号
+                1.把特殊符号"< >"进行转义 &lt; &gt;
+                2.把带特殊符号内容写到CDATA
+-->
+        <property name="bkAddress">
+            <value>
+                <![CDATA[<<南京>>]]>
+            </value>
+        </property>
+
+    </bean>
+
+<!--    3. 有参构造注入属性-->
+    <bean id="order" class="Spring5.Order">
+        <constructor-arg name="oname" value="OrderA"></constructor-arg>
+        <constructor-arg name="address" value="A地址"></constructor-arg>
+    </bean>
+
+<!--    <bean id="book" class="Spring5.Book" p:bkName="BookB" p:bkAuthor="作者B">-->
+<!--        &lt;!&ndash; 2.set方法注入属性-->
+<!--            使用property完成属性注入-->
+<!--            name:类里面属性的名称-->
+<!--            value:向属性注入的值-->
+<!--        &ndash;&gt;-->
+<!--    </bean>-->
+
+</beans>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="stu" class="Spring5.CollectionType.Stu">
+<!--        数组类型属性注入-->
+        <property name="courses">
+            <array>
+                <value>A数组</value>
+                <value>B数组</value>
+                <value>C数组</value>
+            </array>
+        </property>
+
+        <!--        list类型属性注入-->
+        <property name="list">
+            <list>
+                <value>Alist</value>
+                <value>Blist</value>
+                <value>Clist</value>
+            </list>
+        </property>
+
+<!--        Map类型属性注入-->
+        <property name="maps">
+            <map>
+                <entry key="Akey" value="AValue"></entry>
+                <entry key="Bkey" value="BValue"></entry>
+            </map>
+        </property>
+
+<!--        注入list集合对象 值为对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+
+        </property>
+
+    </bean>
+
+
+<!--    创建多个course对象-->
+    <bean id="course1" class="Spring5.CollectionType.Course">
+        <property name="cname" value="A课程"></property>
+    </bean>
+    <bean id="course2" class="Spring5.CollectionType.Course">
+        <property name="cname" value="B课程"></property>
+    </bean>
+</beans>
